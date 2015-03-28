@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <title>We-Cott{% block title %} {% endblock %}</title>
+        <title>WeCott{% block title %} {% endblock %}</title>
 		<link href="{% static 'schema/css/bootstrap.min.css' %}" rel="stylesheet">
 		<link href="{% static 'schema/css/style.css' %}" rel="stylesheet">
     </head>
@@ -19,7 +19,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" id="logo" href="/">[image] We-Cott</a>
+          <a class="navbar-brand" id="logo" href="/">[image] WeCott</a>
         </div>
         {% if user.is_authenticated %}
         <div class="navbar-collapse collapse">
@@ -35,9 +35,9 @@
 	              </ul>
 	            </li>
 	           -->
-	            
-	            <li><a href="/my_groups">My We-Cotts</a></li>
-	            <li><a href="/group_list">Explore We-Cotts</a></li>
+	            <li><button type="button" class="btn btn-default navbar-btn"><a href="/create">Start a WeCott</a></button></li>
+	            <li><a href="/my_groups">My WeCotts</a></li>
+	            <li><a href="/group_list">Explore WeCotts</a></li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
             <li class="dropdown dropdown-right">
