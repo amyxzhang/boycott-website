@@ -6,7 +6,10 @@ import schema
 # admin.autodiscover()
 
 urlpatterns = patterns('',
-    url(r'^$', include('schema.urls')),
+    
+    url(r'^$', 'schema.views.home'),
+    url(r'^petition/(?P<petition_name>[\w-]+)/', 'schema.views.petition'),
+    
     (r'^accounts/', include('registration.backends.default.urls')),
    #  url(r'^boycott_website/', include('boycott_website.foo.urls')),
 
