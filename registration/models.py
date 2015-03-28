@@ -4,8 +4,8 @@ import random
 import re
 
 from django.conf import settings
-from schema.models import UserProfile
 from django.db import models
+from django.contrib.auth.models import User
 from django.db import transaction
 from django.template.loader import render_to_string
 from django.utils.translation import ugettext_lazy as _
@@ -13,7 +13,7 @@ from django.utils.translation import ugettext_lazy as _
 try:
     User = settings.AUTH_USER_MODEL
 except ImportError:
-    from schema.models import UserProfile as User
+    from django.contrib.auth.models import User
 
 try:
     from django.utils.timezone import now as datetime_now
