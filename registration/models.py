@@ -11,11 +11,6 @@ from django.template.loader import render_to_string
 from django.utils.translation import ugettext_lazy as _
 
 try:
-    User = settings.AUTH_USER_MODEL
-except ImportError:
-    from django.contrib.auth.models import User
-
-try:
     from django.utils.timezone import now as datetime_now
 except ImportError:
     datetime_now = datetime.datetime.now
@@ -178,7 +173,7 @@ class RegistrationProfile(models.Model):
     """
     ACTIVATED = u"ALREADY_ACTIVATED"
     
-    user = models.ForeignKey(User, unique=True, verbose_name=_('user'))
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, unique=True, verbose_name=_('user'))
     activation_key = models.CharField(_('activation key'), max_length=40)
     
     objects = RegistrationManager()
