@@ -5,6 +5,7 @@
     <head>
         <title>We-Cott{% block title %} {% endblock %}</title>
 		<link href="{% static 'schema/css/bootstrap.min.css' %}" rel="stylesheet">
+		<link href="{% static 'schema/css/style.css' %}" rel="stylesheet">
     </head>
 
     <body>
@@ -64,7 +65,7 @@
     	
 
         <!-- Begin page content -->
-        <div class="container">
+        <div class="container offset-top">
             {% block content %} {% endblock %}
         </div>
         
