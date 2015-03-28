@@ -1,11 +1,21 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from schema.models import *
 import schema
 
-def home(request):
-	top_ten = BoycottPetition.objects.all()[:10]
-	return render(request, 'home.html', {'top':top_ten})
 
-def petition(request, petition_name):
-    id = None
-    return render(request, 'home.html', {})
+
+def error(request):
+    return render(request, '404.html', {})
+
+def home(request):
+    top_ten = BoycottPetition.objects.all()[:10]
+    return render(request, 'home.html', {'top':top_ten})
+
+def petition(request, petition_id):
+    
+    try:
+        p = BoycottPetition.objects.get(id=petition_id)
+    except BoycottPetition.DoesNotExist:
+        return redirect('/404')
+        
+    return render(request, 'petition.html', {'petition': p})
