@@ -120,8 +120,14 @@ INSTALLED_APPS = (
     # Uncomment the next line to enable admin documentation:
     # 'django.contrib.admindocs',
     
-    'schema'
+    'schema',
+    
+    'registration'
 )
+
+LOGIN_REDIRECT_URL = 'http://127.0.0.1:8000'
+ACCOUNT_ACTIVATION_DAYS = 7 # One-week activation window
+REGISTRATION_AUTO_LOGIN = True
 
 # A sample logging configuration. The only tangible logging
 # performed by this configuration is to send an email to
