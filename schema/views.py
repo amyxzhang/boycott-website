@@ -1,3 +1,5 @@
 from django.shortcuts import render
+import schema
 
-# Create your views here.
+def home(request):
+    return render(request, 'schema/home.html', {})
