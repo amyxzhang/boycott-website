@@ -69,7 +69,7 @@ class RegistrationManager(models.Manager):
                 return user
         return False
     
-    def create_inactive_user(self, email, password,
+    def create_inactive_user(self, username, email, password,
                              site, send_email=True):
         """
         Create a new, inactive ``User``, generate a
@@ -80,7 +80,7 @@ class RegistrationManager(models.Manager):
         user. To disable this, pass ``send_email=False``.
         
         """
-        new_user = User.objects.create_user(email, password)
+        new_user = User.objects.create_user(username, email, password)
         new_user.is_active = False
         new_user.save()
 
@@ -103,10 +103,10 @@ class RegistrationManager(models.Manager):
         
         """
         salt = hashlib.sha1(str(random.random())).hexdigest()[:5]
-        email = user.email
-        if isinstance(email, unicode):
-            email = email.encode('utf-8')
-        activation_key = hashlib.sha1(salt+email).hexdigest()
+        username = user.username
+        if isinstance(username, unicode):
+            username = username.encode('utf-8')
+        activation_key = hashlib.sha1(salt+username).hexdigest()
         return self.create(user=user,
                            activation_key=activation_key)
         
