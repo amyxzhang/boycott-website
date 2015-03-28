@@ -1,8 +1,0 @@
-{% extends 'schema/base.html' %}
-
-{% block content %}
-Home
-{% for p in top %}
-{% include "schema/card.html" with petition=p %}
-{% endfor %}
-{% endblock %}

@@ -1,0 +1,74 @@
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>We-Cott{% block title %} {% endblock %}</title>
+		<link href="{% static 'schema/css/bootstrap.min.css' %}" rel="stylesheet">
+    </head>
+
+    <body>
+    	
+     <div id="mailx-header" class="navbar navbar-default navbar-fixed-top navlook" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+        	<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" id="logo" href="/">[image] We-Cott</a>
+        </div>
+        {% if user.is_authenticated %}
+        <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+          	
+	 <!--           <li class="dropdown dropdown-left">
+	              <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span id="active_group">Blah</span><span class="caret"></span></a>
+	              <ul class="dropdown-menu" role="menu">
+	                	<li><a href="/posts?group_name={{ group.name }}">blah</a></li>
+	                <li class="divider"></li>
+	                <li><a href="/my_groups">Manage my groups</a></li>
+	                <li><a href="/group_list">Join/create new groups</a></li>
+	              </ul>
+	            </li>
+	           -->
+	            
+	            <li><a href="/my_groups">My We-Cotts</a></li>
+	            <li><a href="/group_list">Explore We-Cotts</a></li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <li class="dropdown dropdown-right">
+            	<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+            		<span id="user_email">{{ user.email|truncatechars:24 }}</span>
+            		<span class="caret"></span></a>
+              <ul class="dropdown-menu" role="menu">
+                <li><a href="/settings">Settings</a></li>
+                <li><a href="/accounts/logout">Logout</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div><!--/.nav-collapse -->
+        
+        {% else %}
+        <div class="navbar-collapse collapse">
+        	<ul class="nav navbar-nav navbar-right">
+        		<li><a href="/accounts/login/">Login</a></li>
+        		<li><a href="/accounts/register/">Register</a></li>
+        	</ul>
+        </div>
+        {% endif %}
+      </div>
+    </div>
+    	
+
+        <!-- Begin page content -->
+        <div class="container">
+            {% block content %} {% endblock %}
+        </div>
+        
+        <script src="{% static 'schema/js/jquery-1.11.2.min.js' %}"></script>
+        <script src="{% static 'schema/js/bootstrap.min.js' %}"></script>
+    </body>
+</html>

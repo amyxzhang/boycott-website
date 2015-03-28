@@ -7,6 +7,7 @@ import schema
 
 urlpatterns = patterns('',
     url(r'^$', include('schema.urls')),
+    (r'^accounts/', include('registration.backends.default.urls')),
    #  url(r'^boycott_website/', include('boycott_website.foo.urls')),
 
     # Uncomment the admin/doc line below to enable admin documentation:
