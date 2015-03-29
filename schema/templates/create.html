@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block title %} 
+	new title
+{% endblock %}
+
+{% block content %}
+	<form>
+		<div class="page-header">
+	  		<h1>Start a WeCott</h1>
+		</div>
+		<h4>Please choose a name for your WeCott petition</h4>
+		<div class="input-group">
+	  		<span class="input-group-addon" id="basic-addon1">WeCott name</span>
+	  		<input type="text" class="form-control" placeholder="Enter text here" aria-describedby="basic-addon1">
+		</div></br>
+		<h4>Please succinctly state what product and/or company to boycott</h4>
+		<div class="input-group">
+	  		<span class="input-group-addon" id="basic-addon1">What to boycott</span>
+	  		<input type="text" class="form-control" placeholder="Enter text here" aria-describedby="basic-addon1">
+		</div></br>
+		<h4>Please enter a description of this WeCott, including the reasons for it, suggested alternative products, and tips for other participants.</h4>
+		<div class="input-group">
+	  		<span class="input-group-addon" id="basic-addon1">WeCott description</span>
+	  		<input type="text" class="form-control" placeholder="Enter text here" aria-describedby="basic-addon1">
+		</div></br>
+		<h4>Please enter a link to the image you'd like to use for your WeCott</h4>
+		<div class="input-group">
+	  		<span class="input-group-addon" id="basic-addon1">Image link</span>
+	  		<input type="text" class="form-control" placeholder="Enter text here" aria-describedby="basic-addon1">
+		</div></br>
+		<div class="btn-group" role="group" aria-label="...">
+			<button type="submit" class="btn btn-default" style="background-color:#52CC29"><a style="color:white">Submit</a></button>
+			<button type="button" class="btn btn-default" >Cancel</button>
+		</div>
+	</form>
+{% endblock %}
