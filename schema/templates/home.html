@@ -1,10 +1,11 @@
 {% extends 'base.html' %}
 
 {% block title %} 
-new title
+	new title
 {% endblock %}
 
 {% block content %}
+
 	{% for p in top %}
 		{% include "card.html" with petition=p %}
 	{% endfor %}
