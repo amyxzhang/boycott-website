@@ -1,24 +1,14 @@
-from django.shortcuts import render
 from django.http import HttpResponseRedirect
+from django.shortcuts import render, redirect
 from schema.models import *
 import schema
 
-from django import forms
-
-class PetitionForm(forms.Form):
-    name = forms.CharField(label='WeCott Name', max_length=250)
-    description = forms.CharField(label='Description', widget=forms.Textarea) # TODO make rich text?
-    what_to_boycott = forms.CharField(label='What to Boycott', max_length=250)
-    image_url = forms.CharField(label='Link to image (optional)', max_length=300, required=False)
-    video_url = forms.CharField(label='Link to video (optional)', max_length=300, required=False)
+def error(request):
+    return render(request, '404.html', {})
 
 def home(request):
-	top_ten = BoycottPetition.objects.all()[:10]
-	return render(request, 'home.html', {'top':top_ten})
-
-def petition(request, petition_name):
-    id = None
-    return render(request, 'home.html', {})
+    top_ten = BoycottPetition.objects.all()[:10]
+    return render(request, 'home.html', {'top':top_ten})
 
 def create(request):
     # if this is a POST request we need to process the form data
@@ -39,3 +29,13 @@ def create(request):
         form = PetitionForm()
 
     return render(request, 'create.html', {'form': form})
+
+def petition(request, petition_id):
+    
+    try:
+        p = BoycottPetition.objects.get(id=petition_id)
+    except BoycottPetition.DoesNotExist:
+        return redirect('/404')
+        
+    return render(request, 'petition.html', {'petition': p})
+

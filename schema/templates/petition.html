@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block title %} 
+new title
+{% endblock %}
+
+{% block content %}
+	<h2>{{ petition.name }}</h2>
+	<h4>Boycott: {{ petition.what_to_boycott }}</h4>
+	<P>
+		{{ petition.description }}
+	</P>
+	<P>
+		<img class="rounded petition-image" src="{{ petition.image_url }}">
+	</P>
+	<P>
+		Created on {{ petition.created_at }} by {{ petition.created_by.username }}
+	</P>
+	<P>
+
+	</P>
+{% endblock %}
