@@ -8,8 +8,13 @@ p.solid {border-style: solid;border-width: 1px;}
 <body>
 
 <p class="solid">
-<h1>{{petition.name}}</h1>
-<img src={{petition.image_url}} alt="Protest image" style="max-height: 256px;weight: auto">
-<h2><b>Boycott:</b> {{petition.what_to_boycott}}</h2>
-<b>Description:</b> {{petition.description}}
+	<a href="/petition/{{ petition.id }}/">
+		<h1>{{petition.name}}</h1>
+	
+		<img src={{petition.image_url}} alt="Protest image" style="max-height: 256px;weight: auto">
+	</a>
+	<h2><b>Boycott:</b> {{petition.what_to_boycott}}</h2>
+	<b>Description:</b> {{petition.description}} <br><BR>
+	Likes: {{ petition.num_likes }}<br>
+	Signatures: {{ petition.num_sigs }}
 </p>

@@ -9,6 +9,9 @@ def error(request):
 
 def home(request):
     top_ten = BoycottPetition.objects.all()[:10]
+    for top in top_ten:
+        top.num_likes = LikePetition.objects.filter(petition_id=top.id).count()
+        top.num_sigs = Signature.objects.filter(petition_id=top.id).count()
     return render(request, 'home.html', {'top':top_ten})
 
 def petition(request, petition_id):
