@@ -6,6 +6,14 @@ import schema
 def error(request):
     return render(request, '404.html', {})
 
+def my_wecotts(request):
+    if request.user.is_authenticated():
+        signed = Signature.objects.filter(user=request.user)
+        mine = BoycottPetition.objects.filter(created_by=request.user)
+        return render(request, 'mycott.html', {'mine': mine, 'signed':signed})
+    else:
+        return redirect('/accounts/login/')
+
 def home(request):
     top_ten = BoycottPetition.objects.all()[:10]
     for top in top_ten:

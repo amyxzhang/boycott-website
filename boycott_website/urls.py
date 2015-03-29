@@ -9,6 +9,7 @@ urlpatterns = patterns('',
     
     url(r'^$', 'schema.views.home'),
     url(r'^create$', 'schema.views.create'),
+    url(r'^my_wecotts', 'schema.views.my_wecotts'),
     url(r'^404', 'schema.views.error'),
     url(r'^petition/(?P<petition_id>[\w-]+)/', 'schema.views.petition'),
   

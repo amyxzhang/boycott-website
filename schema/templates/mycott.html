@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block title %} 
+	new title
+{% endblock %}
+
+{% block content %}
+	<h2>Boycotts I Created</h2>
+	{% for petition in mine %}
+		<div class="img-rounded card">
+			<a href="/petition/{{ petition.id }}/">
+			<img src={{petition.image_url}} alt="Protest image" style="max-height: 100px;weight: auto" class="pull-right">
+			
+			
+				<h3>{{petition.name}}</h3>
+			
+				</a>
+			<h4><b>Boycott:</b> {{petition.what_to_boycott}}</h4>
+			<b>Description:</b> {{petition.description}} <br><BR>
+		</div>
+	{% endfor %}
+
+	<h2>Boycotts I've Signed</h2>
+	{% for p in signed %}
+		<div class="img-rounded card">
+			Signed on {{ p.signed_at }}<Br>
+			<B>My signature: </B> {{ p.reason }}
+			<BR>
+			<a href="/petition/{{ petition.id }}/">
+			<img src={{p.petition.image_url}} alt="Protest image" style="max-height: 140px;weight: auto" class="pull-right">
+			
+			
+				<h2>{{p.petition.name}}</h2>
+			
+				</a>
+			<h3><b>Boycott:</b> {{p.petition.what_to_boycott}}</h3>
+			<b>Description:</b> {{p.petition.description}} <br><BR>
+			<b>Likes:</b> {{ p.petition.num_likes }}  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			 <b>Signatures:</b> {{ p.petition.num_sigs }}
+		</div>
+	{% endfor %}
+{% endblock %}
