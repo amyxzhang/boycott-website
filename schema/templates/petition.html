@@ -5,6 +5,7 @@ new title
 {% endblock %}
 
 {% block content %}
+<div class="card img-rounded">
 	<h2>{{ petition.name }}</h2>
 	<h4>Boycott: {{ petition.what_to_boycott }}</h4>
 	<P>
@@ -47,4 +48,5 @@ new title
 			<button type="submit" class="btn btn-default" style="background-color:#52CC29"><a style="color:white">Sign</a></button>
 		</div>	
 	</form>
+</div>
 {% endblock %}

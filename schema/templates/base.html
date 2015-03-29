@@ -19,7 +19,9 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" id="logo" href="/">[image] WeCott</a>
+
+          <a class="navbar-brand" id="logo" href="/"> <img width=130 style="top: -12px; position: relative;" src="{% static 'schema/img/oie_transparent.png' %}"></a>
+
         </div>
         {% if user.is_authenticated %}
         <div class="navbar-collapse collapse">
@@ -54,6 +56,11 @@
         
         {% else %}
         <div class="navbar-collapse collapse">
+        	
+        	<ul class="nav navbar-nav">
+        		<li><a href="/create" style="padding: 0px;"><button type="button" class="btn btn-default navbar-btn" style="background-color:#fb654e;color:#ffffff;">Start a WeCott</button></a></li>
+	        </ul>
+        	
         	<ul class="nav navbar-nav navbar-right">
         		<li><a href="/accounts/login/">Login</a></li>
         		<li><a href="/accounts/register/">Register</a></li>
@@ -71,5 +78,7 @@
         
         <script src="{% static 'schema/js/jquery-1.11.2.min.js' %}"></script>
         <script src="{% static 'schema/js/bootstrap.min.js' %}"></script>
+        
+        
     </body>
 </html>
