@@ -8,6 +8,9 @@ new title
 <div class="card img-rounded">
 	<h2>{{ petition.name }}</h2>
 	<h4>Boycott: {{ petition.what_to_boycott }}</h4>
+		<a href="#pledge"><button class="btn btn-default">Pledge your support</button></a>
+		<BR>
+			<BR>
 	<P>
 		{% autoescape off %}
 		{{ petition.description }}
@@ -22,7 +25,7 @@ new title
 	<P>
 
 	</P>
-	<h3>Pledge your support to this WeCott by signing this petition!</h3>
+	<h3 id="pledge">Pledge your support to this WeCott by signing this petition!</h3>
 	<form>
 		<h4>Please tell us briefly why you are supporting this WeCott</h4>
 		<div class="input-group">

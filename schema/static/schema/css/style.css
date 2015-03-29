@@ -9,6 +9,11 @@ body {
 	margin: 20px;
 }
 
+.btn {
+	background-color:#fb654e;
+	color:#ffffff;
+}
+
 .offset-top {
 	margin-top: 80px;
 }
