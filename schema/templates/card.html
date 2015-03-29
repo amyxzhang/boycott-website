@@ -1,20 +1,15 @@
 <!DOCTYPE html>
-<html>
-<head>
-<style>
-p.solid {border-style: solid;border-width: 1px;}
-</style>
-</head>
-<body>
 
-<p class="solid">
+<div class="img-rounded card">
 	<a href="/petition/{{ petition.id }}/">
+	<img src={{petition.image_url}} alt="Protest image" style="max-height: 140px;weight: auto" class="pull-right">
+	
+	
 		<h1>{{petition.name}}</h1>
 	
-		<img src={{petition.image_url}} alt="Protest image" style="max-height: 256px;weight: auto">
-	</a>
+		</a>
 	<h2><b>Boycott:</b> {{petition.what_to_boycott}}</h2>
 	<b>Description:</b> {{petition.description}} <br><BR>
-	Likes: {{ petition.num_likes }}<br>
-	Signatures: {{ petition.num_sigs }}
-</p>
+	<b>Likes:</b> {{ petition.num_likes }}  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	 <b>Signatures:</b> {{ petition.num_sigs }}
+</div>

@@ -1,4 +1,14 @@
 
+body {
+	background-color: #ADD8E6;
+}
+
+.card {
+	background-color: #ffffff;
+	padding: 30px;
+	margin: 20px;
+}
+
 .offset-top {
 	margin-top: 80px;
 }
