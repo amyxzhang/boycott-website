@@ -2,6 +2,7 @@ from django.http import HttpResponseRedirect
 from django.shortcuts import render, redirect
 from schema.models import *
 import schema
+from django.utils import timezone
 
 def error(request):
     return render(request, '404.html', {})
@@ -30,11 +31,13 @@ def petition(request, petition_id):
     
     try:
         p = BoycottPetition.objects.get(id=petition_id)
-	sigs = Signature.objects.filter(petition_id=p.id)
+        sigs = Signature.objects.filter(petition_id=p.id)
         imgs = PictureBoycott.objects.filter(petition_id=p.id)
-	p.amount_saved = len(sigs) * 300.5
-	p.count_sig = len(sigs)
-	p.count_imgs = len(imgs)
+    	p.amount_saved = len(sigs) * 300.5
+    	p.count_sig = len(sigs)
+    	p.count_imgs = len(imgs)
+        time_e = timezone.now() - p.created_at
+        p.days = time_e.days
     except BoycottPetition.DoesNotExist:
         return redirect('/404')
         

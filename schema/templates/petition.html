@@ -6,16 +6,33 @@ new title
 
 {% block content %}
 <div class="card img-rounded">
-<div class="pull-right">
-<h4>Signatures: {{ petition.count_sig }}</h4>
-<h4>Money WeCotted: ${{ petition.amount_saved }}</h4></div>	
+<div style="width:100%; text-align: center;">
+	<h2>{{ petition.name }}</h2>
+		<h4>Boycott: {{ petition.what_to_boycott }}</h4>
+			
+</div>
+				
+				<div class="pull-right" style="padding-top: 50px; padding-right: 130px;">
+					<h1>{{ petition.count_sig }}</h1>
+<h4>Signatures</h4>
+<h1>${{ petition.amount_saved }}</h1>
+<h4>Amount WeCotted</h4>
 
-<h2>{{ petition.name }}</h2>
-	<h4>Boycott: {{ petition.what_to_boycott }}</h4>
-		<a href="#pledge"><button class="btn btn-default">Pledge your support</button></a>
-		<BR>
-			<BR>
-<P>
+<h1>{{ petition.days }}</h1>
+<h4>Days</h4>
+<BR>
+<a href="#pledge"><button class="btn btn-default">Pledge your support</button></a>
+</div>	
+
+
+<div style="padding-left: 120px; padding-top: 50px; display: inline-block;">
+	<iframe width="520" height="360" src="https://www.youtube.com/embed/9S4OLNDiiA8" frameborder="0" allowfullscreen></iframe>
+</div>
+
+
+<P></P>
+<BR>
+<div style="display: inline-block;">
 <img class="rounded petition-image" src="{{ petition.image_url }}">
 </p>
 	<P>
@@ -26,29 +43,36 @@ new title
 	<P>
 		Created on {{ petition.created_at }} by {{ petition.created_by.username }}
 	</P>
-	<P><P>
-<h3>User Uploaded Boycott Photos</h3>
+		
+</div>
+<div class="pull-right" style="width: 400px;">
+<h3>User Uploaded Photos</h3>
 		{% for img in imgs %}
 			
 				<img style="max-width: 150px;" src="{{ img.image_url }}" alt="image uploaded by {{ img.user.username }} on {{ img.created_at }}.">
 			
-{% endfor %}
-	
-</P>
-	<P>
-<h3>Signatures</h3>
-		{% for sig in sigs %}
-		<div>
-			{{ sig.user.username }} pledged <b> ${{ sig.cash_amount }}</b> every {{ sig.time_scale }} to this boycott.<BR>
-		<div style="padding: 20px;">		<i>{{ sig.reason }}</i>
-			</div>
-				Signed by {{ sig.user.username }} on {{ sig.signed_at }}.
-		<hr>	
-		</div>
-{% endfor %}
-	</P>
+	{% endfor %}
+	<button class="btn btn-default">Upload a photo of your WeCott</button>
 
-	</P>
+	<h3>Top Participants</h3>
+		{% for sig in sigs %}
+			{{ sig.user.username }}<BR>
+		{% endfor %}
+
+	<h3>Signatures</h3>
+			{% for sig in sigs %}
+			<div>
+				{{ sig.user.username }} pledged <b> ${{ sig.cash_amount }}</b> every {{ sig.time_scale }} to this boycott.<BR>
+			<div style="padding: 20px;">		<i>{{ sig.reason }}</i>
+				</div>
+					Signed by {{ sig.user.username }} on {{ sig.signed_at }}.
+			<hr>	
+			</div>
+	{% endfor %}
+
+</div>
+
+<div>
 	<h3 id="pledge">Pledge your support to this WeCott by signing this petition!</h3>
 	<form>
 		<h4>Please tell us briefly why you are supporting this WeCott</h4>
@@ -77,5 +101,6 @@ new title
 			<a><button type="submit" class="btn btn-default" style="background-color:#fb654e;color:#ffffff;">Sign</button></a>
 		</div>	
 	</form>
+	</div>
 </div>
 {% endblock %}
