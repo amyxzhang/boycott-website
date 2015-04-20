@@ -47,7 +47,16 @@ new title
 </div>
 <div class="pull-right" style="width: 400px;">
 <h3>Top Voted Alternatives</h3>
-	
+	{% for alt in alts %}
+		<img style="max-width: 150px;" src="{{ alt.image_url }}">
+		<BR>
+			<strong>{{ alt.name }}</strong>
+			<BR>
+				{{alt.description}}
+				<BR>
+					Votes: 4
+	{% endfor %}
+			
 	
 <h3>User Uploaded Photos</h3>
 		{% for img in imgs %}

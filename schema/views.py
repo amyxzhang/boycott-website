@@ -33,6 +33,7 @@ def petition(request, petition_id):
         p = BoycottPetition.objects.get(id=petition_id)
         sigs = Signature.objects.filter(petition_id=p.id)
         imgs = PictureBoycott.objects.filter(petition_id=p.id)
+        alts = Alternatives.objects.filter(petition_id=p.id)
     	p.amount_saved = len(sigs) * 300.5
     	p.count_sig = len(sigs)
     	p.count_imgs = len(imgs)
@@ -41,5 +42,5 @@ def petition(request, petition_id):
     except BoycottPetition.DoesNotExist:
         return redirect('/404')
         
-    return render(request, 'petition.html', {'petition': p, 'sigs': sigs, 'imgs': imgs})
+    return render(request, 'petition.html', {'petition': p, 'sigs': sigs, 'imgs': imgs, 'alts': alts})
 
