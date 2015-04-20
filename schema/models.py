@@ -17,13 +17,13 @@ class BoycottPetition(models.Model):
     
 class UpdatePetition(models.Model):
     petition = models.ForeignKey(BoycottPetition)
-    name = models.CharField(max_length=250, default='')
-    image_url = models.URLField(max_length=300, null=True)
     description = models.TextField(default='')
     
 class Alternatives(models.Model):
     petition = models.ForeignKey(BoycottPetition)
-    name = models.TextField(default='')
+    name = models.CharField(max_length=250, default='')
+    image_url = models.URLField(max_length=300, null=True)
+    description = models.TextField(default='')
 
 class PictureBoycott(models.Model):
     petition = models.ForeignKey(BoycottPetition)
