@@ -23,9 +23,10 @@
 	{% for p in signed %}
 		<div class="img-rounded card">
 			Signed on {{ p.signed_at }}<Br>
+You pledged <b> ${{ p.cash_amount }}</b> every {{ p.time_scale }} to this boycott.
 			<B>My signature: </B> {{ p.reason }}
 			<BR>
-			<a href="/petition/{{ petition.id }}/">
+			<a href="/petition/{{ p.petition.id }}/">
 			<img src={{p.petition.image_url}} alt="Protest image" style="max-height: 140px;weight: auto" class="pull-right">
 			
 			
@@ -33,8 +34,6 @@
 			
 				</a>
 			<h3><b>Boycott:</b> {{p.petition.what_to_boycott}}</h3>
-			<b>Likes:</b> {{ p.petition.num_likes }}  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-			 <b>Signatures:</b> {{ p.petition.num_sigs }}
 		</div>
 	{% endfor %}
 {% endblock %}

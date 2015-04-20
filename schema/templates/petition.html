@@ -6,23 +6,47 @@ new title
 
 {% block content %}
 <div class="card img-rounded">
-	<h2>{{ petition.name }}</h2>
+<div class="pull-right">
+<h4>Signatures: {{ petition.count_sig }}</h4>
+<h4>Money WeCotted: ${{ petition.amount_saved }}</h4></div>	
+
+<h2>{{ petition.name }}</h2>
 	<h4>Boycott: {{ petition.what_to_boycott }}</h4>
 		<a href="#pledge"><button class="btn btn-default">Pledge your support</button></a>
 		<BR>
 			<BR>
+<P>
+<img class="rounded petition-image" src="{{ petition.image_url }}">
+</p>
 	<P>
 		{% autoescape off %}
 		{{ petition.description }}
 		{% endautoescape %}
 	</P>
 	<P>
-		<img class="rounded petition-image" src="{{ petition.image_url }}">
-	</P>
-	<P>
 		Created on {{ petition.created_at }} by {{ petition.created_by.username }}
 	</P>
+	<P><P>
+<h3>User Uploaded Boycott Photos</h3>
+		{% for img in imgs %}
+			
+				<img style="max-width: 150px;" src="{{ img.image_url }}" alt="image uploaded by {{ img.user.username }} on {{ img.created_at }}.">
+			
+{% endfor %}
+	
+</P>
 	<P>
+<h3>Signatures</h3>
+		{% for sig in sigs %}
+		<div>
+			{{ sig.user.username }} pledged <b> ${{ sig.cash_amount }}</b> every {{ sig.time_scale }} to this boycott.<BR>
+		<div style="padding: 20px;">		<i>{{ sig.reason }}</i>
+			</div>
+				Signed by {{ sig.user.username }} on {{ sig.signed_at }}.
+		<hr>	
+		</div>
+{% endfor %}
+	</P>
 
 	</P>
 	<h3 id="pledge">Pledge your support to this WeCott by signing this petition!</h3>

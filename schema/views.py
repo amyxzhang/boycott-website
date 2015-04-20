@@ -20,6 +20,7 @@ def home(request):
         top.num_likes = LikePetition.objects.filter(petition_id=top.id).count()
         top.num_sigs = Signature.objects.filter(petition_id=top.id).count()
         top.description = top.description[0:200]
+	top.amount_saved = top.num_sigs * 300.5 
     return render(request, 'home.html', {'top':top_ten})
 
 def create(request):
@@ -29,8 +30,13 @@ def petition(request, petition_id):
     
     try:
         p = BoycottPetition.objects.get(id=petition_id)
+	sigs = Signature.objects.filter(petition_id=p.id)
+        imgs = PictureBoycott.objects.filter(petition_id=p.id)
+	p.amount_saved = len(sigs) * 300.5
+	p.count_sig = len(sigs)
+	p.count_imgs = len(imgs)
     except BoycottPetition.DoesNotExist:
         return redirect('/404')
         
-    return render(request, 'petition.html', {'petition': p})
+    return render(request, 'petition.html', {'petition': p, 'sigs': sigs, 'imgs': imgs})
 
