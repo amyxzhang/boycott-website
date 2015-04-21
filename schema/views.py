@@ -32,11 +32,14 @@ def petition(request, petition_id):
     try:
         p = BoycottPetition.objects.get(id=petition_id)
         sigs = Signature.objects.filter(petition_id=p.id)
+        for sig in sigs:
+            sig.user_image = sig.user.userprofile_set.all()[0].image_url
         imgs = PictureBoycott.objects.filter(petition_id=p.id)
         alts = Alternatives.objects.filter(petition_id=p.id)
     	p.amount_saved = len(sigs) * 300.5
     	p.count_sig = len(sigs)
     	p.count_imgs = len(imgs)
+        p.user_image = p.created_by.userprofile_set.all()[0].image_url
         time_e = timezone.now() - p.created_at
         p.days = time_e.days
     except BoycottPetition.DoesNotExist:

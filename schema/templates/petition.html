@@ -9,6 +9,9 @@ new title
 <div style="width:100%; text-align: center;">
 	<h2>{{ petition.name }}</h2>
 		<h4>Boycott: {{ petition.what_to_boycott }}</h4>
+		Created on {{ petition.created_at }} by 
+		<img class="img-circle" src="{{ petition.user_image }}" alt="{{ petition.created_by.username }}">
+		{{ petition.created_by.username }}
 			
 </div>
 				
@@ -40,10 +43,7 @@ new title
 		{{ petition.description }}
 		{% endautoescape %}
 	</P>
-	<P>
-		Created on {{ petition.created_at }} by {{ petition.created_by.username }}
-	</P>
-		
+
 </div>
 <div class="pull-right" style="width: 400px;">
 <h3>Top Voted Alternatives</h3>
@@ -69,7 +69,7 @@ new title
 
 	<h3>Top Participants</h3>
 		{% for sig in sigs %}
-			{{ sig.user.username }}<BR>
+		<img class="img-circle" src="{{ sig.user_image }}" alt="{{ sig.user.username }}">
 		{% endfor %}
 
 	<h3>Signatures</h3>
