@@ -22,3 +22,8 @@ body {
 	max-width: 300px;
 	max-height: 300px;
 }
+
+.img-circle {
+	max-width: 20px;
+	max-height: 20px;
+}
