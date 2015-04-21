@@ -13,9 +13,10 @@
 	{% autoescape off %}
 		<b>Description:</b> {{petition.description}}... <br><BR>
 	{% endautoescape %}
-	<P>
-		<h3>Money WeCotted: ${{ petition.amount_saved }}</h3>
-	</p>
-	<b>Likes:</b> {{ petition.num_likes }}  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-	 <b>Signatures:</b> {{ petition.num_sigs }}
+	<strong>${{ petition.amount_saved }}</strong> Amount WeCotted &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	
+	<b>{{ petition.num_sigs }}</b> Signatures &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	
+	<b>{{ petition.num_likes }}</b> Likes   
+	 
 </div>
