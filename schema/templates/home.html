@@ -2,11 +2,11 @@
 
 {% block start %}
 
-<div style="background-color: #ffffff">
+<div style="background-color: #ffffff; border: #e7e7e7 1px solid;">
 	<div style="display: inline-block; width: 60%;">
 		<img width=100% src="/static/schema/img/boycott-grapes.jpg">
 	</div>
-	<div class="pull-right" style="padding-top: 70px; height: 100%; padding-left: 0px; display: inline-block; width: 30%; margin-right: 50px;">
+	<div class="pull-right" style="padding-top: 70px; padding-left: 0px; display: inline-block; width: 30%; margin-right: 50px;">
 		<h3>Why take a stand on your own? Join our communities to engage with issues, participate in boycotts, and help
 			each other find alternatives.</h3>
 		
@@ -16,6 +16,7 @@
 {% endblock %}
 
 {% block content %}
+	<h3>Top Petitions</h3>
 	{% for p in top %}
 		{% include "card.html" with petition=p %}
 	{% endfor %}

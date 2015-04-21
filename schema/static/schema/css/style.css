@@ -1,10 +1,15 @@
 
 body {
-	background-color: #ADD8E6;
+	background-color: #f8f8f8;
+}
+
+div {
+	font-family: 'Source Sans Pro', sans-serif;
 }
 
 .card {
 	background-color: #ffffff;
+	border: #e7e7e7 1px solid;
 	padding: 30px;
 	margin: 20px;
 }

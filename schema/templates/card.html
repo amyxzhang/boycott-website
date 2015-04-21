@@ -5,18 +5,18 @@
 	<img src={{petition.image_url}} alt="Protest image" style="max-height: 140px;weight: auto" class="pull-right">
 	
 	
-		<h1>{{petition.name}}</h1>
+		<h4>{{petition.name}}</h4>
 	
 		</a>
-	<h2><b>Boycott:</b> {{petition.what_to_boycott}}</h2>
+	<h5><b>Boycott:</b> {{petition.what_to_boycott}}</h5>
 	
 	{% autoescape off %}
 		<b>Description:</b> {{petition.description}}... <br><BR>
 	{% endautoescape %}
-	<strong>${{ petition.amount_saved }}</strong> Amount WeCotted &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	<strong>${{ petition.amount_saved }}</strong> amount WeCotted &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 	
-	<b>{{ petition.num_sigs }}</b> Signatures &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	<b>{{ petition.num_sigs }}</b> signatures &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 	
-	<b>{{ petition.num_likes }}</b> Likes   
+	<b>{{ petition.num_likes }}</b> likes   
 	 
 </div>
