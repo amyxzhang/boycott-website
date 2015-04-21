@@ -63,7 +63,7 @@ new title
 <h3>User Uploaded Photos</h3>
 		{% for img in imgs %}
 			
-				<img class="rounded" style="max-width: 150px;" src="{{ img.image_url }}" alt="image uploaded by {{ img.user.username }} on {{ img.created_at }}.">
+				<img class="img-rounded" style="max-width: 150px;" src="{{ img.image_url }}" alt="image uploaded by {{ img.user.username }} on {{ img.created_at }}.">
 			
 	{% endfor %}
 	<BR>
@@ -81,7 +81,7 @@ new title
 				{{ sig.user.username }} pledged <b> ${{ sig.cash_amount }}</b> every {{ sig.time_scale }} to this boycott.<BR>
 			<div style="padding: 20px;">		<i>{{ sig.reason }}</i>
 				</div>
-					Signed by {{ sig.user.username }} on {{ sig.signed_at }}.
+					Signed by {{ sig.user.username }} on {{ sig.signed_at }}
 			<hr>	
 			</div>
 	{% endfor %}
