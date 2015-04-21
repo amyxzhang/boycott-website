@@ -50,7 +50,7 @@ new title
 <div class="pull-right" style="width: 400px;">
 <h3>Top Voted Alternatives</h3>
 	{% for alt in alts %}
-		<img class="rounded" style="max-width: 150px;" src="{{ alt.image_url }}">
+		<img class="img-rounded" style="max-width: 150px;" src="{{ alt.image_url }}">
 		<BR>
 			<strong>{{ alt.name }}</strong>
 			<BR>
@@ -66,7 +66,7 @@ new title
 				<img class="img-rounded" style="max-width: 150px;" src="{{ img.image_url }}" alt="image uploaded by {{ img.user.username }} on {{ img.created_at }}.">
 			
 	{% endfor %}
-	<BR>
+	<BR><BR>
 	<button class="btn btn-default">Upload a photo of your WeCott</button>
 
 	<h3>Top Participants</h3>
