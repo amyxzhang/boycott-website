@@ -78,7 +78,9 @@ new title
 				{{ sig.user.username }} pledged <b> ${{ sig.cash_amount }}</b> every {{ sig.time_scale }} to this boycott.<BR>
 			<div style="padding: 20px;">		<i>{{ sig.reason }}</i>
 				</div>
-					Signed by {{ sig.user.username }} on {{ sig.signed_at }}.
+					Signed by 
+					<img class="img-circle" src="{{ sig.user_image }}" alt="{{ sig.user.username }}">
+					{{ sig.user.username }} on {{ sig.signed_at }}.
 			<hr>	
 			</div>
 	{% endfor %}
