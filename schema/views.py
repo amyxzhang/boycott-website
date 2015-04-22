@@ -16,12 +16,12 @@ def my_wecotts(request):
         return redirect('/accounts/login/')
 
 def home(request):
-    top_ten = BoycottPetition.objects.all()[:10]
+    top_ten = BoycottPetition.objects.all().order_by('-created_at')[:10]
     for top in top_ten:
         top.num_likes = LikePetition.objects.filter(petition_id=top.id).count()
         top.num_sigs = Signature.objects.filter(petition_id=top.id).count()
         top.description = top.description[0:450]
-	top.amount_saved = top.num_sigs * 300.5 
+	top.amount_saved = top.num_sigs * 300.52
     return render(request, 'home.html', {'top':top_ten})
 
 def create(request):
