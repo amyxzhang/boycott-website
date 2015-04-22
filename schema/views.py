@@ -20,7 +20,7 @@ def home(request):
     for top in top_ten:
         top.num_likes = LikePetition.objects.filter(petition_id=top.id).count()
         top.num_sigs = Signature.objects.filter(petition_id=top.id).count()
-        top.description = top.description[0:400]
+        top.description = top.description[0:450]
 	top.amount_saved = top.num_sigs * 300.5 
     return render(request, 'home.html', {'top':top_ten})
 
