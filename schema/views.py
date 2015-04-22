@@ -39,11 +39,11 @@ def petition(request, petition_id):
     	p.amount_saved = len(sigs) * 300.5
     	p.count_sig = len(sigs)
     	p.count_imgs = len(imgs)
-        p.user_image = p.created_by.userprofile_set.all()[0].image_url
+        user = p.created_by.userprofile_set.all()[0]
         time_e = timezone.now() - p.created_at
         p.days = time_e.days
     except BoycottPetition.DoesNotExist:
         return redirect('/404')
         
-    return render(request, 'petition.html', {'petition': p, 'sigs': sigs, 'imgs': imgs, 'alts': alts})
+    return render(request, 'petition.html', {'petition': p, 'sigs': sigs, 'imgs': imgs, 'alts': alts, 'user': user})
 

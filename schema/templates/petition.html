@@ -10,7 +10,7 @@ new title
 	<h2>{{ petition.name }}</h2>
 		<h4>Boycott: {{ petition.what_to_boycott }}</h4>
 		Created on {{ petition.created_at }} by 
-		<img class="img-circle" src="{{ petition.user_image }}" alt="{{ petition.created_by.username }}">
+		<img class="img-circle" src="{{ user.image_url }}" alt="{{ petition.created_by.username }}">
 		{{ petition.created_by.username }}
 			
 </div>
@@ -48,6 +48,10 @@ new title
 
 </div>
 <div class="pull-right" style="width: 400px;">
+<h3>About the Author</h3>
+<img class="img-circle" src="{{ user.image_url }}" alt="{{ user.username }}"><BR>
+	{{ user.description }}
+	<BR>
 <h3>Top Voted Alternatives</h3>
 	{% for alt in alts %}
 		<img class="img-rounded" style="max-width: 150px;" src="{{ alt.image_url }}">
