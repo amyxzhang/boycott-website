@@ -50,3 +50,4 @@ class LikeSignature(models.Model):
 class UserProfile(models.Model):
     user = models.ForeignKey(User)
     image_url = models.URLField(max_length=300, null=False)
+    description = models.TextField(default='')
