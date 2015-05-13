@@ -136,6 +136,18 @@ new title
 			<hr>	
 			</div>
 	{% endfor %}
+	
+	<h3>Checkins and Map Additions</h3>
+			{% for checkin in checkins %}
+			<div>
+				<img class="img-circle" src="{{ checkin.user_image }}" alt="{{ checkin.user.username }}">
+				{{ checkin.user.username }} checked in to {{ checkin.location }}.
+			<div style="padding: 20px;">		<i>{{ checkin.description }}</i>
+				</div>
+			<hr>	
+			</div>
+	{% endfor %}
+	
 
 </div>
 

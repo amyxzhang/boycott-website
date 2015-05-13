@@ -39,6 +39,11 @@ def petition(request, petition_id):
             sig.user_image = sig.user.userprofile_set.all()[0].image_url
         imgs = PictureBoycott.objects.filter(petition_id=p.id)
         alts = Alternatives.objects.filter(petition_id=p.id)
+        
+        checkins = CheckinPetition.objects.filter(petition_id=p.id)
+        for checkin in checkins:
+            checkin.user_image = checkin.user.userprofile_set.all()[0].image_url
+        
         udates = UpdatePetition.objects.filter(petition_id=p.id)
         
         updates = []
@@ -61,5 +66,7 @@ def petition(request, petition_id):
     except BoycottPetition.DoesNotExist:
         return redirect('/404')
         
-    return render(request, 'petition.html', {'petition': p, 'sigs': sigs, 'imgs': imgs, 'alts': alts, 'user': user, 'updates': updates})
+    return render(request, 'petition.html', {'petition': p, 'sigs': sigs, 'imgs': imgs, 'alts': alts, 'user': user, 
+                                             'updates': updates,
+                                             'checkins': checkins})
 
