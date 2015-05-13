@@ -53,9 +53,20 @@ new title
 </div>
 <div class="pull-right" style="width: 400px;">
 <h3>About the Author</h3>
-<img class="img-circle" src="{{ user.image_url }}" alt="{{ user.username }}"><BR>
+<img style="width:40px; height: 40px;" class="img-rounded" src="{{ user.image_url }}" alt="{{ petition.created_by.username }}">
+&nbsp;&nbsp;
+<strong>{{ petition.created_by.username }}</strong>
+<img style="width:30px; height: 30px;" src="/static/schema/img/verified.png">
+<BR>
 	{{ user.description }}
 	<BR>
+		
+{% if petition.help_description != '' %}
+		<h3>Where your help is needed</h3>
+		 {{petition.help_description}}
+{% endif %}
+	
+
 <h3>Top Voted Alternatives</h3>
 	{% for alt in alts %}
 		<img class="img-rounded" style="max-width: 150px;" src="{{ alt.image_url }}">
