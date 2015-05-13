@@ -141,7 +141,7 @@ new title
 			{% for checkin in checkins %}
 			<div>
 				<img class="img-circle" src="{{ checkin.user_image }}" alt="{{ checkin.user.username }}">
-				{{ checkin.user.username }} <img style="width: 20px;" href="/static/schema/img/check-in.png">{{ checkin.location }}.
+				{{ checkin.user.username }} <img style="width: 20px; height: 20px;" src="/static/schema/img/check-in.png">{{ checkin.location }}.
 			<div style="padding: 20px;">		<i>{{ checkin.description }}</i>
 				</div>
 			Add an addition to the map on the left!
