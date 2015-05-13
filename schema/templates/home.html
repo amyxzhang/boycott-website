@@ -9,17 +9,30 @@
 	<div class="pull-right" style="height: 100%; width: 35%;">
 		
 		<div style="padding-top: 70px; padding-left: 0px; margin-right: 50px;">
-			<h3>Why take a stand on your own? Join our communities to engage with issues, participate in boycotts, and help
-				each other find alternatives.</h3>
 			
-			<h1>Together, let's stand up to corporate corruption and promote ethical consumerism.</h1>
+			
+			<h3>
+				Want to make a difference?<BR>
+				Why take a stand on your own? 
+				<BR><BR>
+			
+				Join a WeCott campaign, where you can learn how to take action, 
+				support and encourage one another, and contribute your part to the story.
+			</h3>
+			<BR>
+			<h4>
+				Deciding where to put your money can be hard. In WeCott, <strong>professional investigative journalists</strong> and 
+				the <strong>collective members of the community</strong> work together to help you find out the right way to make your dollars count.
+				</h4>
+			
+			<h1>Together, let's stand up to corruption and promote ethical consumerism.</h1>
 		</div>
 	</div>
 </div>
 {% endblock %}
 
 {% block content %}
-	<h3>Top Petitions</h3>
+	<h3>Top Campaigns</h3>
 	{% for p in top %}
 		{% include "card.html" with petition=p %}
 	{% endfor %}

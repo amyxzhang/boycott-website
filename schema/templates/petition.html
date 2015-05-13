@@ -8,17 +8,21 @@ new title
 <div class="card img-rounded">
 <div style="width:100%; text-align: center;">
 	<h2>{{ petition.name }}</h2>
-		<h4>Boycott: {{ petition.what_to_boycott }}</h4>
+		<h4>Boycott: {{ petition.what_to_boycott }}<BR>
+		Buy: {{ petition.what_to_buy }}</h4>
 		Created on {{ petition.created_at }} by 
 		<img class="img-circle" src="{{ user.image_url }}" alt="{{ petition.created_by.username }}">
 		{{ petition.created_by.username }}
 			
 </div>
 				
-				<div class="pull-right" style="padding-top: 50px; padding-right: 130px;">
+				<div class="pull-right" style="padding-top: 0px; padding-right: 130px;">
 
 <h1>${{ petition.amount_saved }}</h1>
-<h4>Amount WeCotted</h4>
+<h4>Amount diverted</h4>
+
+<h1>${{ petition.amount_saved }}</h1>
+<h4>Amount spent</h4>
 
 <h1>{{ petition.count_sig }}</h1>
 <h4>Signatures</h4>
@@ -101,12 +105,21 @@ new title
 	  		<span class="input-group-addon" id="basic-addon1">Comment</span>
 	  		<input type="text" class="form-control" placeholder="Enter text here" aria-describedby="basic-addon1">
 		</div></br>
-		<h4>Please tell us how much money you normally spend on these products/companies</h4>
+		
+		<h4>Please tell us how much money you normally spend on unethical products/companies related to this WeCott</h4>
 		<div class="input-group">
 			<span class="input-group-addon">I spend</span>
 			<input type="text" class="form-control" placeholder="Enter amount to the nearest dollar" aria-label="Amount (to the nearest dollar)">
 			<span class="input-group-addon">USD</span>
 		</div></br>
+		
+		<h4>Please tell us how much money you intend to spend ethically related to this WeCott</h4>
+		<div class="input-group">
+			<span class="input-group-addon">I spend</span>
+			<input type="text" class="form-control" placeholder="Enter amount to the nearest dollar" aria-label="Amount (to the nearest dollar)">
+			<span class="input-group-addon">USD</span>
+		</div></br>
+		
 		<div class="dropdown">
 			<button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
 		    	Per month

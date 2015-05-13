@@ -8,13 +8,19 @@
 		<h4>{{petition.name}}</h4>
 	
 		</a>
-	<h5><b>Boycott:</b> {{petition.what_to_boycott}}</h5>
+	<h5><b>What to avoid:</b> {{petition.what_to_boycott}}</h5>
+	<h5><b>What to buy:</b> {{petition.what_to_buy}}</h5>
+	{% if petition.help_description != '' %}
+		<h5><b>Where your help is needed:</b> {{petition.help_description}}</h5>
+	{% endif %}
 	
 	{% autoescape off %}
 		<b>Description:</b> {{petition.description}}... <br><BR>
 	{% endautoescape %}
-	<strong style="color: #fb654e;">${{ petition.amount_saved }}</strong> amount WeCotted &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-	
+	<strong style="color: #fb654e;">${{ petition.amount_saved }}</strong> amount diverted from unethical sources
+	<BR>
+	<strong style="color: #fb654e;">${{ petition.amount_saved }}</strong> amount spent on ethical goods and services
+	<BR><BR>
 	<b>{{ petition.num_sigs }}</b> signatures &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 	
 	<b>{{ petition.num_likes }}</b> likes   

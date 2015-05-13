@@ -10,6 +10,8 @@ class BoycottPetition(models.Model):
     name = models.CharField(max_length=250, default='')
     description = models.TextField(default='')
     what_to_boycott = models.TextField(default='')
+    what_to_buy = models.TextField(default='')
+    help_description = models.TextField(default='')
     created_at = models.DateTimeField(default=datetime.datetime.utcnow())
     created_by = models.ForeignKey(User)
     image_url = models.URLField(max_length=300, null=True)
