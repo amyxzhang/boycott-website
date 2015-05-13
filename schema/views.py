@@ -62,7 +62,7 @@ def petition(request, petition_id):
     	p.count_imgs = len(imgs)
         user = p.created_by.userprofile_set.all()[0]
         time_e = timezone.now() - p.created_at
-        p.days = time_e.days
+        p.days = time_e.days + 1
     except BoycottPetition.DoesNotExist:
         return redirect('/404')
         
