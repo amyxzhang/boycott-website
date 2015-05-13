@@ -20,6 +20,7 @@ class BoycottPetition(models.Model):
 class UpdatePetition(models.Model):
     petition = models.ForeignKey(BoycottPetition)
     description = models.TextField(default='')
+    created_at = models.DateTimeField(default=datetime.datetime.utcnow())
     
 class Alternatives(models.Model):
     petition = models.ForeignKey(BoycottPetition)

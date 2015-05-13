@@ -49,6 +49,34 @@ new title
 		{{ petition.description }}
 		{% endautoescape %}
 	</P>
+	
+
+<BR>
+<h3>Timeline of the Issue</h3>
+
+
+{% for update in updates %}
+<P>
+	<strong>{{ update.created_at }}</strong>
+	<BR>
+		{% autoescape off %}
+		{{ update.description }}
+		{% endautoescape %}
+			
+</P>
+{% endfor %}
+<BR>
+
+<h3>Contribute to the Map</h3>
+
+<iframe
+  width="550"
+  height="350"
+  frameborder="0" style="border:0"
+  src="https://www.google.com/maps/embed/v1/search?key=AIzaSyCH3Jt3E_DDXe3460pjrSIsel_S529BcJM
+    &q={{petition.what_to_boycott}}">
+</iframe>
+	
 
 </div>
 <div class="pull-right" style="width: 400px;">
@@ -78,17 +106,6 @@ new title
 					Votes: 4
 					<P>
 	{% endfor %}
-			
-<h3>Contribute to the Map</h3>
-
-<iframe
-  width="350"
-  height="350"
-  frameborder="0" style="border:0"
-  src="https://www.google.com/maps/embed/v1/search?key=AIzaSyCH3Jt3E_DDXe3460pjrSIsel_S529BcJM
-    &q={{petition.what_to_boycott}}">
-</iframe>
-	
 	
 <h3>User Uploaded Photos</h3>
 		{% for img in imgs %}

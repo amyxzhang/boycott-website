@@ -36,6 +36,18 @@ def petition(request, petition_id):
             sig.user_image = sig.user.userprofile_set.all()[0].image_url
         imgs = PictureBoycott.objects.filter(petition_id=p.id)
         alts = Alternatives.objects.filter(petition_id=p.id)
+        udates = UpdatePetition.objects.filter(petition_id=p.id)
+        
+        updates = []
+        for update in udates:
+            updates.append({'created_at': update.created_at,
+                            'description': update.description})
+        
+        updates.append({'created_at': p.created_at,
+                        'description': 'This WeCott campaign was created!'})
+        
+        updates = sorted(updates, key=lambda x: x['created_at'], reverse=True)
+        
     	p.amount_saved = len(sigs) * 300.5
     	p.count_sig = len(sigs)
     	p.count_imgs = len(imgs)
@@ -45,5 +57,5 @@ def petition(request, petition_id):
     except BoycottPetition.DoesNotExist:
         return redirect('/404')
         
-    return render(request, 'petition.html', {'petition': p, 'sigs': sigs, 'imgs': imgs, 'alts': alts, 'user': user})
+    return render(request, 'petition.html', {'petition': p, 'sigs': sigs, 'imgs': imgs, 'alts': alts, 'user': user, 'updates': updates})
 
