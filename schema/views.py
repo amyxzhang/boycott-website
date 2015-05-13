@@ -22,6 +22,7 @@ def home(request):
         top.num_sigs = Signature.objects.filter(petition_id=top.id).count()
         top.description = top.description[0:450]
 	top.amount_saved = top.num_sigs * 300.52
+    top.amount_bought = top.num_sigs * 157.32
     return render(request, 'home.html', {'top':top_ten})
 
 def create(request):
@@ -48,7 +49,8 @@ def petition(request, petition_id):
         
         updates = sorted(updates, key=lambda x: x['created_at'], reverse=True)
         
-    	p.amount_saved = len(sigs) * 300.5
+    	p.amount_saved = len(sigs) * 300.52
+        p.amount_bought = len(sigs) * 157.32
     	p.count_sig = len(sigs)
     	p.count_imgs = len(imgs)
         user = p.created_by.userprofile_set.all()[0]
