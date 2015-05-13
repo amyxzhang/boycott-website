@@ -103,7 +103,9 @@ new title
 		<BR>
 			<strong>{{ alt.name }}</strong>
 			<BR>
+				{% autoescape off %}
 				{{alt.description}}
+				{% autoescape on %}
 				<BR>
 					Votes: 4
 					<P>
