@@ -16,7 +16,13 @@ class BoycottPetition(models.Model):
     created_by = models.ForeignKey(User)
     image_url = models.URLField(max_length=300, null=True)
     video_url = models.URLField(max_length=300, null=True)
-    
+
+class CheckinPetition(models.Model):
+    petition = models.ForeignKey(BoycottPetition)
+    user = models.ForeignKey(User)
+    description = models.TextField(default='')
+    created_at = models.DateTimeField(default=datetime.datetime.utcnow())
+
 class UpdatePetition(models.Model):
     petition = models.ForeignKey(BoycottPetition)
     description = models.TextField(default='')
